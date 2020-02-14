@@ -1,0 +1,18 @@
+.book {
+    padding: 20px;
+    background: linen;
+    border-radius: 5px;
+}
+
+.book > h3 {
+    margin-top: 0;
+}
+
+.author {
+    color: blue;
+}
+
+.cost {
+    font-size: 0.8em;
+    color: brown;
+}
