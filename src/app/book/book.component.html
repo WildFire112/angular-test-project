@@ -1,7 +1,24 @@
 <div class="book">
-    <h3>{{ name }}</h3>
-    <p class="author">Author: {{ author }}</p>
-    <p class="cost">Cost: {{ cost }}</p>
-    <p>Pages: {{ pages }}</p>
-    <p>Characters: {{ characters }}</p>
+    <h3 [ngClass]="{old: isOld()}">{{ book.name }}</h3>
+
+    <div *ngIf="showInfo; then btnHide else btnShow"></div>
+    <ng-template #btnHide>
+        <button (click)="showInfo=false">Hide</button>
+    </ng-template>
+
+    <ng-template #btnShow>
+        <button (click)="showInfo=true">Show more...</button>
+    </ng-template>
+
+    <div class="info" *ngIf="showInfo">
+        <p class="author">Author: {{ book.author }}</p>
+        <p class="cost">Cost: {{ book.cost }}$</p>
+        <div class="edit-cost">
+            <input type="number" 
+                [(ngModel)]="book.cost"
+                (ngModelChange)="onChange()">
+        </div>
+        <p>Pages: {{ book.pages }}</p>
+        <p>Characters: {{ book.characters }}</p>
+    </div>
 </div>

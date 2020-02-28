@@ -2,6 +2,7 @@
     padding: 20px;
     background: linen;
     border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 .book > h3 {
@@ -15,4 +16,19 @@
 .cost {
     font-size: 0.8em;
     color: brown;
+}
+
+.old {
+    color: darkblue;
+    font-size: 1.5em;
+}
+
+img {
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.img-container {
+    text-align: center;
+    margin-bottom: 20px;
 }

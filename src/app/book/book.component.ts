@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-book',
@@ -7,20 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookComponent implements OnInit {
 
-  name = "Book of books";
-  author = "Arthur";
-  cost = "300$";
+  @Input() book;
+  @Output() dataChange = new EventEmitter();
 
-  pages = 325;
-  characters = [
-    'Tom Billson',
-    'Mike Falcon',
-    'Kile Moltis'
-  ];
+  showInfo = false;
 
   constructor() { }
 
+  isOld() {
+    return (this.book.cost > 200)
+  }
+
   ngOnInit(): void {
+  }
+
+  onChange() {
+    this.dataChange.emit(new Date());
   }
 
 }

@@ -1,2 +1,12 @@
 <div>Hello World</div>
-<app-book></app-book>
+<p>
+    last data change:
+    <span>
+        {{changeDate|date:'dd.MM.yyyy HH:mm:ss'}}
+    </span>
+</p>
+<app-book 
+    *ngFor="let book of books" 
+    [book]="book"
+    (dataChange)="onDataChange($event)">
+</app-book>
