@@ -1,12 +1,18 @@
-<div>Hello World</div>
-<p>
-    last data change:
-    <span>
-        {{changeDate|date:'dd.MM.yyyy HH:mm:ss'}}
-    </span>
-</p>
-<app-book 
-    *ngFor="let book of books" 
-    [book]="book"
-    (dataChange)="onDataChange($event)">
-</app-book>
+<nav>
+    <div class="nav-wrapper">
+        <a class="brand-logo">Books</a>
+    </div>
+</nav>
+<div class="container">
+    <div class="row" style="margin-top: 20px;">
+        <div class="col m6 offset-m3 s12">
+            <a class="btn-floating btn-large waves-effect waves-light green">
+                <i class="material-icons">add</i>
+            </a>
+        </div>
+    </div>
+    <app-book 
+        *ngFor="let book of books" 
+        [book]="book">
+    </app-book>
+</div>

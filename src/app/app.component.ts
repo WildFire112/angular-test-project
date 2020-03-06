@@ -6,9 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-test-proj';
-  changeDate = new Date();
-
   books = [
     {
       name: "Book of books",
@@ -45,8 +42,4 @@ export class AppComponent {
       ]
     }
   ]
-
-  onDataChange(event) {
-    this.changeDate = event;
-  }
 }
