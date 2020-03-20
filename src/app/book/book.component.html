@@ -1,24 +1,32 @@
-<div class="book">
-    <h3 [ngClass]="{old: isOld()}">{{ book.name }}</h3>
-
-    <div *ngIf="showInfo; then btnHide else btnShow"></div>
-    <ng-template #btnHide>
-        <button (click)="showInfo=false">Hide</button>
-    </ng-template>
-
-    <ng-template #btnShow>
-        <button (click)="showInfo=true">Show more...</button>
-    </ng-template>
-
-    <div class="info" *ngIf="showInfo">
-        <p class="author">Author: {{ book.author }}</p>
-        <p class="cost">Cost: {{ book.cost }}$</p>
-        <div class="edit-cost">
-            <input type="number" 
-                [(ngModel)]="book.cost"
-                (ngModelChange)="onChange()">
-        </div>
-        <p>Pages: {{ book.pages }}</p>
-        <p>Characters: {{ book.characters }}</p>
+<div class="row valign-wrapper">
+    <div class="col m3 offset-m3 s6 center-align">
+        <h5>{{ book.name }}</h5>
     </div>
+
+    <div class="col m3 s6 center-align">
+        <a class="btn-floating waves-effect waves-light blue"
+            (click)="showInfo=!showInfo">
+            <i *ngIf="showInfo" class="material-icons">keyboard_arrow_up</i>
+            <i *ngIf="!showInfo" class="material-icons">keyboard_arrow_down</i>
+        </a>
+    </div>
+</div>
+
+<div class="info" *ngIf="showInfo">
+    <div class="input-field">
+        <input type="text" id="author" class="validate" [(ngModel)]="book.author">
+        <label for="author" class="active">Author</label>
+    </div>
+    <div class="input-field">
+        <input type="number" id="cost" class="validate" [(ngModel)]="book.cost">
+        <label for="cost" class="active">Cost</label>
+    </div>
+    <div class="input-field">
+        <input type="number" id="pages" class="validate" [(ngModel)]="book.pages">
+        <label for="pages" class="active">Pages</label>
+    </div>
+    <a class="rem-row btn-floating waves-effect waves-light red"
+            (click)="delBook()">
+        <i class="material-icons">delete</i>
+    </a>
 </div>

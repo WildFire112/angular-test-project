@@ -4,15 +4,10 @@
     </div>
 </nav>
 <div class="container">
-    <div class="row" style="margin-top: 20px;">
-        <div class="col m6 offset-m3 s12">
-            <a class="btn-floating btn-large waves-effect waves-light green">
-                <i class="material-icons">add</i>
-            </a>
-        </div>
-    </div>
+    <app-new-book (book)="addBook($event)"></app-new-book>
     <app-book 
         *ngFor="let book of books" 
         [book]="book">
+        (removeGroup)="deleteBook($event)"
     </app-book>
 </div>

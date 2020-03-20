@@ -42,4 +42,11 @@ export class AppComponent {
       ]
     }
   ]
+
+  addBook(book) {
+    this.books.push(book);
+  }
+  deleteBook(index) {
+    this.books.splice(index, 1);
+  }
 }
