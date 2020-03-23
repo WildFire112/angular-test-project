@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { BooksDataService } from '../services/books-data.service';
 
 @Component({
   selector: 'app-book',
@@ -9,16 +10,15 @@ export class BookComponent implements OnInit {
 
   @Input() book;
   @Input() bookIndex;
-  @Output() removeBook = new EventEmitter();
   showInfo = false;
 
-  constructor() { }
+  constructor(private bookService: BooksDataService) { }
 
   ngOnInit(): void {
   }
 
   delBook() {
-    this.removeBook.emit(this.bookIndex);
+    this.bookService.deleteBook(this.bookIndex);
   }
 
 }

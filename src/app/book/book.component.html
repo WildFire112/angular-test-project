@@ -9,6 +9,11 @@
             <i *ngIf="showInfo" class="material-icons">keyboard_arrow_up</i>
             <i *ngIf="!showInfo" class="material-icons">keyboard_arrow_down</i>
         </a>
+        <a [routerLink] = "'/readers/'+book.name"
+            class="margin-3 btn-floating waves-effect waves-light blue-grey"
+            style="margin-left: 5px;">
+            <i class="material-icons">view_headline</i>
+        </a>
     </div>
 </div>
 

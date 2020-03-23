@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { BooksDataService } from '../services/books-data.service';
 
 @Component({
   selector: 'app-new-book',
@@ -7,10 +8,9 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class NewBookComponent implements OnInit {
 
-  @Output() book = new EventEmitter();
   showForm = false;
 
-  constructor() { }
+  constructor(private bookService: BooksDataService) { }
 
   ngOnInit(): void {
   }
@@ -18,7 +18,7 @@ export class NewBookComponent implements OnInit {
   onSubmit(myForm) {
     const fields = myForm.form.controls;
     this.showForm = false;
-    this.book.emit({
+    this.bookService.addBook({
       name: fields.name.value,
       author: fields.author.value,
       cost: fields.cost.value,
