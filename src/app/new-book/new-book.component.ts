@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { BooksDataService } from '../services/books-data.service';
 
 @Component({
@@ -23,7 +23,6 @@ export class NewBookComponent implements OnInit {
       author: fields.author.value,
       cost: fields.cost.value,
       pages: fields.pages.value,
-    })
+    });
   }
-
 }

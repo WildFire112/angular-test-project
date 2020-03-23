@@ -12,12 +12,21 @@ export class ReaderListComponent implements OnInit {
 
   readers: any[];
 
-  constructor(private bookService: BooksDataService,private activatedRoute: ActivatedRoute) {}
-
-  ngOnInit(): void {
+  constructor(private bookService: BooksDataService,private activatedRoute: ActivatedRoute) {
     this.activatedRoute.params.subscribe(params => {
-      this.bookService.getReaders(params.bookName)
-        .subscribe(readers => this.readers = readers)
+      bookService.getReaders(params.bookName).subscribe(readers => {
+        this.readers = readers;
+      });
     });
   }
+
+  onNewReader(reader) {
+    this.readers.push(reader);
+  }
+
+  onReaderDelete(index) {
+    this.readers.splice(index, 1);
+  }
+
+  ngOnInit(): void { }
 }

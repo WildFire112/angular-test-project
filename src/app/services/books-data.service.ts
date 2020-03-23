@@ -48,6 +48,7 @@ export class BooksDataService {
       bookName: 'Holy Bibel'
     }
   ]
+
   constructor() { }
 
   getBooks(): Observable<any[]> {
@@ -64,5 +65,13 @@ export class BooksDataService {
 
   getReaders(bookName: string): Observable<any[]> {
     return of(this.readers.filter(e => e.bookName == bookName));
+  }
+
+  addReader(reader) {
+    this.readers.push(reader);
+  }
+
+  deleteReader(name) {
+    this.readers.splice(this.readers.findIndex((p) => p.name == name), 1);
   }
 }

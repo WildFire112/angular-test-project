@@ -11,7 +11,7 @@ export class BookListComponent implements OnInit {
   books: any[];
 
   constructor(private bookservice: BooksDataService) {
-    bookservice.getBooks().subscribe(books => this.books = books);
+    this.bookservice.getBooks().subscribe(books => this.books = books);
   }
 
   ngOnInit(): void {

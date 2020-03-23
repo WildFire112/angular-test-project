@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BooksDataService } from '../services/books-data.service';
 
 @Component({

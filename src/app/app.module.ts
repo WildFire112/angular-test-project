@@ -9,6 +9,8 @@ import { BookComponent } from './book/book.component';
 import { NewBookComponent } from './new-book/new-book.component';
 import { BookListComponent } from './book-list/book-list.component';
 import { ReaderListComponent } from './reader-list/reader-list.component';
+import { NewReaderComponent } from './new-reader/new-reader.component';
+import { ReaderComponent } from './reader/reader.component';
 
 const routes: Routes = [
   {
@@ -32,7 +34,9 @@ const routes: Routes = [
     BookComponent,
     NewBookComponent,
     BookListComponent,
-    ReaderListComponent
+    ReaderListComponent,
+    NewReaderComponent,
+    ReaderComponent
   ],
   imports: [
     BrowserModule,
